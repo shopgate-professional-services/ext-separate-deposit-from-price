@@ -1,13 +1,6 @@
-# Shopgate Connect - Extension Boilerplate
+# Shopgate Engage - Separate Deposit from Price Extension
 
-This boilerplate contains all important folders and files which are required for an extension.
-
-## Steps to start with the boilerplate
-
-- Replace the `id` property in the file `extension-config.json` with the id of your extension
-- Replace the `version` property in the file `extension-config.json` with version of your wish
-- If you don't need a pipeline, remove the `awesomeOrganization.awesomePipeline.v1.json` in the `pipelines` folder
-- If you want to use a pipelines, modify the `awesomeOrganization.awesomePipeline.v1.json` in the `pipelines` folder and rename it to the new name 
+This extension will removed deposit amount from items prices for products that have a triggering product property. A hint will be added to the product indicating that a deposit will be added. The total deposit amount will be added as a cart sub total line.
 
 ## About Shopgate
 
