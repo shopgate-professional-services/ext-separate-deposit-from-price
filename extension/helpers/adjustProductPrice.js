@@ -1,31 +1,20 @@
-const PRICE_PROPS_TO_ADJUST = ['unitPrice', 'unitPriceStriked', 'unitPriceNet', 'unitPriceWithTax']
-
-module.exports = async (context, { products = [] }) => {
-  const updatedProducts = products.map((product) => {
-    const { price, separatedDepositAmount = 0 } = product
-    return {
-      ...product,
-      price: adjustProductPrice(price, separatedDepositAmount)
-    }
-  })
-
-  return { products: updatedProducts }
-}
-
 /**
- * Adjust product price by deducting deposit amount
+ * Adjust price object by deposit amount
  * @param {Object} price Price object
- * @param {number} separatedDepositAmount Deposit amount to deduct
- *
- * @return {Object}
+ * @param {number} separatedDepositAmount Deposit amount to reduce price by
+ * @param {string[]} priceKeys
  */
-const adjustProductPrice = (price, separatedDepositAmount) => {
+module.exports = (price, separatedDepositAmount, priceKeys = []) => {
   const newPrice = { ...price }
   if (!separatedDepositAmount) {
     return newPrice
   }
 
-  PRICE_PROPS_TO_ADJUST.forEach((key) => {
+  priceKeys.forEach((key) => {
+    if (!newPrice[key]) {
+      return
+    }
+
     newPrice[key] = deductAmount(newPrice[key], separatedDepositAmount)
   })
 
@@ -52,6 +41,13 @@ const adjustProductPrice = (price, separatedDepositAmount) => {
  * @return {number}
  */
 const deductAmount = (originalAmount, separatedDepositAmount) => {
+  if (!originalAmount ||
+    isNaN(originalAmount) ||
+    !separatedDepositAmount ||
+    isNaN(separatedDepositAmount)) {
+    return originalAmount
+  }
+
   if (originalAmount < separatedDepositAmount) {
     return originalAmount
   }
