@@ -18,7 +18,6 @@
     {
       "path": "extension/addDepositAmount.js",
       "hooks": [
-        "shopgate.catalog.getProducts.v1:afterFetchProducts",
         "shopgate.catalog.getProductsByIds.v1:afterFetchProducts"
       ],
       "input": [
