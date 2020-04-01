@@ -26,7 +26,6 @@ const adjustProductPrice = (price, separatedDepositAmount) => {
   }
 
   PRICE_PROPS_TO_ADJUST.forEach((key) => {
-    console.log(`price adjustment key ${key} value ${newPrice[key]}`)
     newPrice[key] = deductAmount(newPrice[key], separatedDepositAmount)
   })
 
