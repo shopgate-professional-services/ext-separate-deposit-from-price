@@ -4,5 +4,63 @@
   "components": [
   ],
   "configuration": {
-  }
+    "triggerProductProperties": {
+      "type": "admin",
+      "destination": "both",
+      "default": [],
+      "params": {
+        "label": "triggering product properties with deposit amount",
+        "type": "json"
+      }
+    }
+  },
+  "steps": [
+    {
+      "path": "extension/addDepositAmount.js",
+      "hooks": [
+        "shopgate.catalog.getProductsByIds.v1:afterFetchProducts"
+      ],
+      "input": [
+        {
+          "key": "products"
+        }
+      ],
+      "output": [
+        {
+          "key": "products"
+        }
+      ]
+    },
+    {
+      "path": "extension/deductDepositFromPrice.js",
+      "hooks": [
+        "shopgate.catalog.getProductsByIds.v1:after"
+      ],
+      "input": [
+        {
+          "key": "products"
+        }
+      ],
+      "output": [
+        {
+          "key": "products"
+        }
+      ]
+    },
+    {
+      "path": "extension/exposeDepositAmountInProduct.js",
+      "hooks": ["shopgate.catalog.getProduct.v1:afterFetchProducts"],
+      "input": [
+        {
+          "key": "products"
+        }
+      ],
+      "output": [
+        {
+          "key": "separatedDepositAmount",
+          "addPipelineOutput": true
+        }
+      ]
+    }
+  ]
 }
