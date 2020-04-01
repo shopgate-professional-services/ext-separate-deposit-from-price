@@ -12,6 +12,15 @@
         "label": "triggering product properties with deposit amount",
         "type": "json"
       }
+    },
+    "depositLabel": {
+      "type": "admin",
+      "destination": "both",
+      "default": "Battery Deposit",
+      "params": {
+        "label": "label for deposit amount",
+        "type": "text"
+      }
     }
   },
   "steps": [
@@ -73,6 +82,23 @@
       "output": [
         {
           "key": "cartItems"
+        }
+      ]
+    },
+    {
+      "path": "extension/steps/adjustCartTotals.js",
+      "hooks": ["shopgate.cart.getCart.v1:after"],
+      "input": [
+        {
+          "key": "cartItems"
+        },
+        {
+          "key": "totals"
+        }
+      ],
+      "output": [
+        {
+          "key": "totals"
         }
       ]
     }
