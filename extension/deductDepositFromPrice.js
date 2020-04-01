@@ -22,7 +22,6 @@ module.exports = async (context, { products = [] }) => {
 const adjustProductPrice = (price, separatedDepositAmount) => {
   const newPrice = { ...price }
   if (!separatedDepositAmount) {
-
     return newPrice
   }
 
@@ -34,7 +33,6 @@ const adjustProductPrice = (price, separatedDepositAmount) => {
   if (Array.isArray(newPrice.tiers) && newPrice.tiers.length) {
     newPrice.tiers = newPrice.tiers.map((tier) => {
       if (!tier.unitPrice) {
-
         return tier
       }
 
