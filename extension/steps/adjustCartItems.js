@@ -5,10 +5,10 @@ const PRICE_KEYS = ['unit', 'default', 'special']
 module.exports = async (context, { cartItems = [] }) => {
   const updatedCartItems = cartItems.map((cartItem) => {
     const { triggerProductProperties = [] } = context.config
-    const { product = {} } = cartItem
+    const { product = {}, quantity = 0 } = cartItem
     const { shopItem = {}, price = {} } = product
     const { properties = [] } = shopItem
-    const separatedDepositAmount = getDepositAmount(triggerProductProperties, properties)
+    const separatedDepositAmount = getDepositAmount(triggerProductProperties, properties) * quantity
     return {
       ...cartItem,
       product: {

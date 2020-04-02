@@ -2,6 +2,12 @@
   "version": "1.0.0",
   "id": "@shopgate-project/ext-separate-deposit-from-price",
   "components": [
+    {
+      "type": "portals",
+      "target": "cart.payment-bar.totals.sub-total.after",
+      "path": "frontend/portals/DepositCartSubtotal",
+      "id": "DepositCartSubtotal"
+    }
   ],
   "configuration": {
     "triggerProductProperties": {
