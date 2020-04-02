@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { getProductDataById } from '@shopgate/pwa-common-commerce/product/selectors/product';
 
 /**
  * Selects the cart data from the store.
@@ -22,4 +23,19 @@ export const getDepositTotal = createSelector(
   (totals = []) => (
     totals.find(({ type }) => type === 'deposit') || null
   )
+);
+
+/**
+ * Selects the total amounts stack from the cart data.
+ * @param {Object} state The current application state.
+ * @param {Object} props Props from component
+ * @return {number}
+ */
+export const getProductDepositAmountById = createSelector(
+  getProductDataById,
+  (productData) => {
+    const { separatedDepositAmount = 0 } = productData || {};
+
+    return separatedDepositAmount;
+  }
 );

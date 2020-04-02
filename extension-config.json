@@ -7,6 +7,34 @@
       "target": "cart.payment-bar.totals.sub-total.after",
       "path": "frontend/portals/DepositCartSubtotal",
       "id": "DepositCartSubtotal"
+    },
+    {
+      "type": "portals",
+      "target": "product.price.after",
+      "path": "frontend/portals/ProductPrice/PDPProductPriceAfter",
+      "id": "PDPProductPriceAfter"
+    },
+    {
+      "type": "portals",
+      "target": "product-item.price.after",
+      "path": "frontend/portals/ProductPrice/ProductListPriceAfter",
+      "id": "ProductListPriceAfter"
+    },
+    {
+      "type": "portals",
+      "target": "favorites.product-price.after",
+      "path": "frontend/portals/ProductPrice/FavoritesProductPriceAfter",
+      "id": "FavoritesProductPriceAfter"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/de-DE.json",
+      "id": "locale/de-DE"
     }
   ],
   "configuration": {
