@@ -9,7 +9,12 @@ triggerProductProperties
   "triggerProductProperties": [{"label": "battery_deposit", "value": "yes", "depositAmount": 7.99}]
 }
 ```
-
+depositLabel
+```json
+{
+  "depositLabel": "Battery Deposit"
+}
+```
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.

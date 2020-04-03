@@ -2,6 +2,40 @@
   "version": "1.0.0",
   "id": "@shopgate-project/ext-separate-deposit-from-price",
   "components": [
+    {
+      "type": "portals",
+      "target": "cart.payment-bar.totals.sub-total.after",
+      "path": "frontend/portals/DepositCartSubtotal",
+      "id": "DepositCartSubtotal"
+    },
+    {
+      "type": "portals",
+      "target": "product.price.after",
+      "path": "frontend/portals/ProductPrice/PDPProductPriceAfter",
+      "id": "PDPProductPriceAfter"
+    },
+    {
+      "type": "portals",
+      "target": "product-item.price.after",
+      "path": "frontend/portals/ProductPrice/ProductListPriceAfter",
+      "id": "ProductListPriceAfter"
+    },
+    {
+      "type": "portals",
+      "target": "favorites.product-price.after",
+      "path": "frontend/portals/ProductPrice/FavoritesProductPriceAfter",
+      "id": "FavoritesProductPriceAfter"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/de-DE.json",
+      "id": "locale/de-DE"
+    }
   ],
   "configuration": {
     "triggerProductProperties": {
@@ -12,11 +46,20 @@
         "label": "triggering product properties with deposit amount",
         "type": "json"
       }
+    },
+    "depositLabel": {
+      "type": "admin",
+      "destination": "both",
+      "default": "Battery Deposit",
+      "params": {
+        "label": "label for deposit amount",
+        "type": "text"
+      }
     }
   },
   "steps": [
     {
-      "path": "extension/addDepositAmount.js",
+      "path": "extension/steps/addDepositAmount.js",
       "hooks": [
         "shopgate.catalog.getProductsByIds.v1:afterFetchProducts"
       ],
@@ -32,7 +75,7 @@
       ]
     },
     {
-      "path": "extension/deductDepositFromPrice.js",
+      "path": "extension/steps/deductDepositFromPrice.js",
       "hooks": [
         "shopgate.catalog.getProductsByIds.v1:after"
       ],
@@ -48,7 +91,7 @@
       ]
     },
     {
-      "path": "extension/exposeDepositAmountInProduct.js",
+      "path": "extension/steps/exposeDepositAmountInProduct.js",
       "hooks": ["shopgate.catalog.getProduct.v1:afterFetchProducts"],
       "input": [
         {
@@ -59,6 +102,37 @@
         {
           "key": "separatedDepositAmount",
           "addPipelineOutput": true
+        }
+      ]
+    },
+    {
+      "path": "extension/steps/adjustCartItems.js",
+      "hooks": ["shopgate.cart.getCart.v1:afterFetchCart"],
+      "input": [
+        {
+          "key": "cartItems"
+        }
+      ],
+      "output": [
+        {
+          "key": "cartItems"
+        }
+      ]
+    },
+    {
+      "path": "extension/steps/adjustCartTotals.js",
+      "hooks": ["shopgate.cart.getCart.v1:after"],
+      "input": [
+        {
+          "key": "cartItems"
+        },
+        {
+          "key": "totals"
+        }
+      ],
+      "output": [
+        {
+          "key": "totals"
         }
       ]
     }
