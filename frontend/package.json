@@ -1,5 +1,5 @@
 {
-  "name": "@shopgate-project/ext-separate-deposit-from-price",
+  "name": "@shopgate-project/separate-deposit-from-price",
   "version": "1.0.0",
   "description": "An awesome extesion for my awesome organization",
   "license": "Apache-2.0",

@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "id": "@shopgate-project/ext-separate-deposit-from-price",
+  "version": "1.0.0-rc.1",
+  "id": "@shopgate-project/separate-deposit-from-price",
   "components": [
     {
       "type": "portals",
