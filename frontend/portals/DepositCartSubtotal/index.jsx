@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CartTotalLine } from '@shopgate/engage/components';
 import connect from './connector';
+import { depositLabels } from '../../config';
 
 /**
  * DepositCartSubtotal portal
@@ -15,9 +16,11 @@ const DepositCartSubtotal = ({ depositTotal, currency }) => {
     return null;
   }
 
+  const i18nLabel = depositLabels.cartLabel || 'separate_deposit.cartLabel';
+
   return (
     <CartTotalLine>
-      <CartTotalLine.Label label={depositTotal.label} />
+      <CartTotalLine.Label label={i18nLabel} />
       <CartTotalLine.Amount amount={depositTotal.amount} currency={currency} />
     </CartTotalLine>
   );

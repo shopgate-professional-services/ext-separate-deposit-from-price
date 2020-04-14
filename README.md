@@ -6,13 +6,22 @@ This extension will removed deposit amount from items prices for products that h
 triggerProductProperties
 ```json
 {
-  "triggerProductProperties": [{"label": "battery_deposit", "value": "yes", "depositAmount": 7.99}]
+  "triggerProductProperties": [
+    {
+      "label": "Batteriepfand", 
+      "value": 1, 
+      "depositAmount": 7.99
+    }
+  ]
 }
 ```
 depositLabel
 ```json
 {
-  "depositLabel": "Battery Deposit"
+  "depositLabels": {
+    "label": "Plus {deposit} battery deposit",
+    "cartLabel": "Battery deposit"
+  }
 }
 ```
 ## About Shopgate

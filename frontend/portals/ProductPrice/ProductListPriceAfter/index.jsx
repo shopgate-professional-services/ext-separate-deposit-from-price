@@ -5,7 +5,7 @@ import DepositHint from '../../../components/DepositHint';
 import connect from '../connector';
 
 const style = css({
-  fontSize: '12px',
+  fontSize: '0.75rem',
 }).toString();
 
 /**

@@ -1,5 +1,4 @@
 module.exports = async (context, { cartItems = [], totals = [] }) => {
-  const { depositLabel } = context.config
   const depositTotal = cartItems.reduce((total, cartItem) => {
     const { product = {} } = cartItem
     const { separatedDepositAmount = 0 } = product
@@ -34,7 +33,7 @@ module.exports = async (context, { cartItems = [], totals = [] }) => {
     totals: [
       ...newTotals,
       {
-        label: depositLabel,
+        label: null,
         amount: depositTotal,
         type: 'deposit'
       }

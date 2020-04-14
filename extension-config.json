@@ -43,17 +43,20 @@
       "destination": "both",
       "default": [],
       "params": {
-        "label": "triggering product properties with deposit amount",
+        "label": "Triggering product properties with deposit amount",
         "type": "json"
       }
     },
-    "depositLabel": {
+    "depositLabels": {
       "type": "admin",
-      "destination": "both",
-      "default": "Battery Deposit",
+      "destination": "frontend",
+      "default": {
+        "label": null,
+        "cartLabel": null
+      },
       "params": {
-        "label": "label for deposit amount",
-        "type": "text"
+        "type": "json",
+        "label": "Labels for deposit amount. Fallback: locales if empty"
       }
     }
   },
