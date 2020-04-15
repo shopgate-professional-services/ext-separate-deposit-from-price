@@ -1,6 +1,6 @@
 {
   "name": "@shopgate-project/separate-deposit-from-price",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "Separate Deposit from Price Extension",
   "license": "Apache-2.0",
   "scripts": {
