@@ -31,6 +31,10 @@ module.exports = (price, separatedDepositAmount, priceKeys = []) => {
     })
   }
 
+  if (newPrice.info) {
+    newPrice.info = ''
+  }
+
   return newPrice
 }
 
