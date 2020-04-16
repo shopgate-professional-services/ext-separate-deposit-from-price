@@ -1,5 +1,6 @@
 {
   "separate_deposit": {
-    "plus": "Plus"
+    "label": "Plus {deposit} battery deposit",
+    "cartLabel": "Battery deposit"
   }
 }

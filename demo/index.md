@@ -7,7 +7,10 @@ The Separate Deposit Fee from Product Price configuration is set up in the conne
 ```json
 {
   "triggerProductProperties": [{"label": "battery_deposit", "value": "yes", "depositAmount": 7.99}],
-  "depositLabel": "Battery Deposit"
+  "depositLabels": {
+    "label": "Plus {deposit} battery deposit",
+    "cartLabel": "Battery deposit"
+  }
 }
 ```
 
@@ -21,6 +24,6 @@ The Separate Deposit Fee from Product Price configuration is set up in the conne
 #### iOS Examples:
 ![](productDetailIos.png)
 ![](productListIos.png)
-![](siiderIos.png)
+![](sliderIos.png)
 ![](favoritesIos.png)
 ![](cartIos.png)

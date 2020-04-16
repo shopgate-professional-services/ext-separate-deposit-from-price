@@ -6,6 +6,7 @@ import connect from '../connector';
 
 const style = css({
   position: 'absolute',
+  fontSize: '0.75rem',
   right: '17px',
   maxWidth: '60%',
 }).toString();

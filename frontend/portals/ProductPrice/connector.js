@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getProductCurrency } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { getProductCurrency } from '@shopgate/engage/product';
 import { getProductDepositAmountById } from '../../selectors';
 
 /**

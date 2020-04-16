@@ -1,20 +1,13 @@
 import { createSelector } from 'reselect';
-import { getProductDataById } from '@shopgate/pwa-common-commerce/product/selectors/product';
-
-/**
- * Selects the cart data from the store.
- * @param {Object} state The current state.
- * @return {Object}
- */
-export const getCart = state => state.cart;
+import { getProductDataById } from '@shopgate/engage/product';
 
 /**
  * Selects the total amounts stack from the cart data.
  * @param {Object} state The current application state.
  * @return {Object} The total amount stack.
  */
-export const getTotals = createSelector(
-  getCart,
+const getTotals = createSelector(
+  state => state.cart,
   cart => cart.totals
 );
 
@@ -35,7 +28,6 @@ export const getProductDepositAmountById = createSelector(
   getProductDataById,
   (productData) => {
     const { separatedDepositAmount = 0 } = productData || {};
-
     return separatedDepositAmount;
   }
 );

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "id": "@shopgate-project/separate-deposit-from-price",
   "components": [
     {
@@ -43,17 +43,20 @@
       "destination": "both",
       "default": [],
       "params": {
-        "label": "triggering product properties with deposit amount",
+        "label": "Triggering product properties with deposit amount",
         "type": "json"
       }
     },
-    "depositLabel": {
+    "depositLabels": {
       "type": "admin",
-      "destination": "both",
-      "default": "Battery Deposit",
+      "destination": "frontend",
+      "default": {
+        "label": null,
+        "cartLabel": null
+      },
       "params": {
-        "label": "label for deposit amount",
-        "type": "text"
+        "type": "json",
+        "label": "Labels for deposit amount. Fallback: locales if empty"
       }
     }
   },
@@ -107,7 +110,7 @@
     },
     {
       "path": "extension/steps/adjustCartItems.js",
-      "hooks": ["shopgate.cart.getCart.v1:afterFetchCart"],
+      "hooks": ["shopgate.cart.getCart.v1:after"],
       "input": [
         {
           "key": "cartItems"

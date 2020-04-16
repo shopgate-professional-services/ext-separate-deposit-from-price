@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'glamor';
 import { withCurrentProduct } from '@shopgate/engage/core';
 import DepositHint from '../../../components/DepositHint';
 import connect from '../connector';
+
+const style = css({
+  fontSize: '0.825rem',
+}).toString();
 
 /**
  * PDPProductPriceAfter component
@@ -11,7 +16,7 @@ import connect from '../connector';
  * @return {JSX}
  */
 const PDPProductPriceAfter = ({ depositAmount, currency }) => (
-  <DepositHint amount={depositAmount} currency={currency} />
+  <DepositHint amount={depositAmount} currency={currency} className={style} />
 );
 
 PDPProductPriceAfter.propTypes = {
