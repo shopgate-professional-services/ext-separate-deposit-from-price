@@ -2,6 +2,28 @@
 
 This extension will removed deposit amount from items prices for products that have a triggering product property. A hint will be added to the product indicating that a deposit will be added. The total deposit amount will be added as a cart sub total line.
 
+## Configuration
+triggerProductProperties
+```json
+{
+  "triggerProductProperties": [
+    {
+      "label": "Batteriepfand", 
+      "value": 1, 
+      "depositAmount": 7.99
+    }
+  ]
+}
+```
+depositLabel
+```json
+{
+  "depositLabels": {
+    "label": "Plus {deposit} battery deposit",
+    "cartLabel": "Battery deposit"
+  }
+}
+```
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.

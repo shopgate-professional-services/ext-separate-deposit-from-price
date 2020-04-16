@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": "standard",
+  "rules": {
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ]
+  }
+}

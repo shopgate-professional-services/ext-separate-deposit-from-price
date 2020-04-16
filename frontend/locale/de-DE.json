@@ -1,0 +1,6 @@
+{
+  "separate_deposit": {
+    "label": "zzgl. {deposit} Batteriepfand",
+    "cartLabel": "Batteriepfand"
+  }
+}
