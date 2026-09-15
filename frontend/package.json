@@ -1,6 +1,6 @@
 {
   "name": "@shopgate-project/separate-deposit-from-price",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Separate Deposit from Price Extension",
   "license": "Apache-2.0",
   "scripts": {
@@ -17,8 +17,5 @@
     "prop-types": "^15.7.2",
     "react": "~16.12.0",
     "react-dom": "~16.12.0"
-  },
-  "peerDependencies": {
-    "@shopgate/engage": "^6.11.0"
   }
 }
